@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat Room</title>
+    
+    <link rel="stylesheet" href="/style.css">
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="script.js"></script>
+    <style>
+        .chat-card {
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="/">Home</a>
+        <div class="ml-auto">
+            <button class="btn btn-outline-light" id="loginBtn">Login</button>
+        </div>
+    </nav>
+
+    <div class="container text-center mt-5">
+        <h1 class="welcome-text" id="welcomeMessage">Welcome to Chatroom by WebSocket</h1>
+
+        <div class="login-card card p-4" id="loginCard" style="display: none;">
+            <div class="card-body">
+                <h5 class="card-title">Enter your name</h5>
+                <input type="text" class="form-control" id="nameInput" placeholder="Your Name">
+                <button class="btn btn-primary mt-3" id="enterBtn">Enter</button>
+            </div>
+        </div>
+
+        <div id="chat-room" class="d-none">
+            <h1>Chat Room</h1>
+            
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <div class="card chat-card">
+                            <div class="card-body">
+                                
+                                <div class="input-group mb-3">
+                                    <input type="text" placeholder="Enter your message" id="message-value" class="form-control" style="width: 100%;">
+                                </div>
+                                
+<div class="input-group mt-3">
+    <button class="btn btn-dark mr-2" id="send-btn">Send</button>
+    <button class="btn btn-dark" href="/" id="logout" >Logout</button>
+</div>
+                                
+                                <div class="table-responsive mt-3">
+                                    <table class="table table-bordered" id="message-container-table">
+                                        <!-- Messages will be dynamically inserted here -->
+                                    </table>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
